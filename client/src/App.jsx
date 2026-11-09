@@ -35,7 +35,7 @@ export default function App() {
         {/* HOME */}
         <section id="home" className="section hero">
           <div className="wrap">
-            <h1>{home.headline}</h1>
+            <h1>{home.headline}THis is the first CICD block tested</h1>
             <p className="lead">{home.subhead}</p>
             <a className="btn" href="#contact">{home.cta}</a>
           </div>
