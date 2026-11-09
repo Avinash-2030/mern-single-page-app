@@ -51,3 +51,4 @@ npm start                 # http://localhost:5000
 | GET    | /api/health    | –                             |
 
 Messages are stored in the `messages` collection. View them in MongoDB Compass or Atlas.
+# webhook test with CLAUDE-ai
