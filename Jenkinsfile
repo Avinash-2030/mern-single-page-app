@@ -52,6 +52,7 @@ pipeline {
 
     post {
         success { echo 'Pipeline succeeded' }
+        success { archiveArtifacts artifacts: 'client/dist/**', allowEmptyArchive: true }
         failure { echo 'Pipeline failed' }
         always  { cleanWs() }
     }
