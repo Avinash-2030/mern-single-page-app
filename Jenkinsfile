@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'your-agent-label' }   // must match the label on your Jenkins agent
+    agent { label 'agent1' }   // must match the label on your Jenkins agent
 
     options {
         timestamps()
