@@ -48,6 +48,22 @@ pipeline {
                 }
             }
         }
+        stage('Deploy') {
+            steps {
+                sh '''
+                    docker build -t mern-app:${BUILD_NUMBER} -t mern-app:latest .
+                    docker network create mern-net || true
+                    docker volume create mongo-data || true
+                    docker start mongo || docker run -d --name mongo --network mern-net \
+                      --restart unless-stopped -v mongo-data:/data/db mongo:7
+                    docker rm -f mern-app || true
+                    docker run -d --name mern-app --network mern-net --restart unless-stopped \
+                      -p 5000:5000 -e MONGO_URI=mongodb://mongo:27017/mernsite mern-app:latest
+                '''
+            }
+        }
+
+
     }
 
     post {
